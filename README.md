@@ -134,11 +134,25 @@ In the new command, the summary annotation is enclosed in escaped double quotes 
 
 ## Example of the alert received in the webhook
 
-```json
+```
 Alert received:
  {'receiver': 'Python Fake', 'status': 'firing', 'alerts': [{'status': 'firing', 'labels': {'alertname': 'ireful', 'severity': 'info'}, 'annotations': {'summary': 'This is dummy alert with a custom summary'}, 'startsAt': '2025-03-28T20:19:45Z', 'endsAt': '0001-01-01T00:00:00Z', 'generatorURL': '', 'fingerprint': '4724e6df27b318d6'}], 'groupLabels': {}, 'commonLabels': {'alertname': 'ireful', 'severity': 'info'}, 'commonAnnotations': {'summary': 'This is dummy alert with a custom summary'}, 'externalURL': 'https://console-openshift-console.apps.example.domain.com/monitoring', 'version': '4', 'groupKey': '{}/{severity="info"}:{}', 'truncatedAlerts': 0}
 X.X.X.X - - [28/Mar/2025 17:20:48] "POST / HTTP/1.1" 200 -
 ```
+
+
+## Alert Severity Levels
+
+Alertmanager supports different severity levels to categorize alerts. The severity level determines the urgency and potential impact of an alert.
+
+| **Severity**  | **Description**                                       | **Use Case** |
+|--------------|---------------------------------------------------|------------|
+| `info`       | Informational alert, no immediate action needed. | General monitoring, logging events. |
+| `warning`    | Potential issue detected, requires attention.     | High memory usage, slow response times. |
+| `critical`   | Major failure, immediate action required.         | Service down, database unreachable. |
+| `emergency`  | System-wide failure, urgent intervention needed.  | Security breach, data corruption. |
+
+> **Note:** Severity levels can be customized based on your Alertmanager configuration and business requirements.
 
 
 ## Conclusion
