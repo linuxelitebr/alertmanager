@@ -104,7 +104,7 @@ while true; do
     NAME=$(shuf -n 1 /usr/share/dict/words)
     sleep 2
     DATE=$(date -u +"%Y-%m-%dT%H:%M:%S%:z")
-    oc exec alertmanager-main-0 -- amtool alert add \
+    oc -n openshift-monitoring exec alertmanager-main-0 -- amtool alert add \
         --alertmanager.url http://localhost:9093 \
         alertname="$NAME" \
         --start="$DATE" \
